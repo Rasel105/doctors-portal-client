@@ -5,18 +5,18 @@ import Info from './Info';
 import MakeAppoinment from './MakeAppoinment';
 import Testimonials from './Testimonials';
 import ContactUs from '../ContactUs/ContactUs';
-import Footer from './Footer';
+import Footer from '../Shared/Footer';
 
 const Home = () => {
     return (
-        <div className='px-12 mx-auto'>
+        <div>
             <Banner />
             <Info />
             <OurServices />
             <MakeAppoinment />
             <Testimonials />
-            <ContactUs />
-            <Footer />
+            <ContactUs /> 
+            <Footer/>
         </div>
     );
 };

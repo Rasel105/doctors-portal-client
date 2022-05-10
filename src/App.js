@@ -10,13 +10,14 @@ import Login from './Pages/Login/Login';
 
 function App() {
   return (
-    <div>
+    <div className='max-w-7xl	mx-auto px-12'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/home' element={<Home />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/reviews' element={<Reviews />}></Route>
-        <Route path='/appoinment' element={<Appointment />}></Route>
+        <Route path='/appointment' element={<Appointment />}></Route>
         <Route path='/contact' element={<ContactUs />}></Route>
         <Route path='/login' element={<Login />}></Route>
       </Routes>
