@@ -7,10 +7,10 @@ import quote from '../../assets/icons/quote.svg'
 
 const Info = () => {
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-            <InfoCard img={clock}/>
-            <InfoCard img={clock} style={{ backgroundColor: 'bg-primary' }}/>
-            <InfoCard img={clock}/>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
+            <InfoCard bgClass="bg-gradient-to-r from-secondary to-primary" cardTitle="Opening Hours" img={clock}/>
+            <InfoCard bgClass="bg-accent" cardTitle="Visit our location" img={marker} style={{ backgroundColor: 'bg-primary' }}/>
+            <InfoCard bgClass="bg-gradient-to-r from-secondary to-primary" cardTitle="Contact us now" img={phone}/>
         </div>
     );
 };
