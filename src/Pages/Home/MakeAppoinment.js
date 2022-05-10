@@ -11,10 +11,12 @@ const MakeAppoinment = () => {
             <div className='flex-1 hidden lg:block'>
                 <img className='mt-[-100px]' src={doctor} alt="" />
             </div>
-            <div className='flex-1 '>
-                <h3 className='text-xl text-primary font-bold'>Appoinment</h3>
-                <h2 className='text-white text-4xl'>Make an Appoinment Today</h2>
-                <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur rem maiores fugiat, reiciendis facilis repellendus cupiditate eaque autem, repellat voluptas voluptatum, nisi incidunt. Possimus neque quaerat, distinctio, odio nobis iste facere beatae iusto libero saepe animidd, id provident alias?</p>
+            <div className='flex-1 p-10'>
+                <div className='mb-5'>
+                    <h3 className='text-xl text-primary font-bold'>Appoinment</h3>
+                    <h2 className='text-white text-4xl'>Make an Appoinment Today</h2>
+                    <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur rem maiores fugiat, reiciendis facilis repellendus cupiditate eaque autem, repellat voluptas voluptatum, nisi incidunt. Possimus neque quaerat, distinctio, odio nobis iste facere beatae iusto libero saepe animidd, id provident alias?</p>
+                </div>
                 <PrimaryButton>Make an Appoinment</PrimaryButton>
             </div>
         </section>
