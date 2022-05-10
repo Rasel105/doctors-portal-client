@@ -5,6 +5,7 @@ import fluoride from '../../assets/images/fluoride.png'
 import cavity from '../../assets/images/cavity.png'
 import whitening from '../../assets/images/whitening.png'
 import treatment from '../../assets/images/treatment.png'
+import PrimaryButton from '../Shared/PrimaryButton';
 
 const Services = () => {
     const services = [
@@ -48,7 +49,7 @@ const Services = () => {
                     <div className='lg:p-20'>
                         <h1 class="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
                         <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button class="btn btn-primary text-white">Get Started</button>
+                        <PrimaryButton>Get started</PrimaryButton>
                     </div>
                 </div>
             </div>
