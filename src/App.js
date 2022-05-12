@@ -7,6 +7,7 @@ import Reviews from './Pages/Reviews/Reviews';
 import Appointment from './Pages/Appointment/Appointment';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp'
 
 function App() {
   return (
@@ -20,10 +21,10 @@ function App() {
         <Route path='/appointment' element={<Appointment />}></Route>
         <Route path='/contact' element={<ContactUs />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route path='/signup' element={<SignUp />}></Route>
       </Routes>
     </div>
   );
 }
 
 export default App;
- 
