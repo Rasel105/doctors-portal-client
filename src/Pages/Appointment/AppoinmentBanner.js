@@ -8,9 +8,9 @@ import { format } from 'date-fns';
 const AppoinmentBanner = ({ date, setDate }) => {
 
     return (
-        <div class="hero min-h-screen">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <img src={chair} class="max-w-sm rounded-lg shadow-2xl" alt='Dentist' />
+        <div className="hero min-h-screen">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt='Dentist' />
                 <div>
                     <DayPicker
                         mode="single"

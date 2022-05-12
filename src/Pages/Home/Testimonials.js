@@ -11,21 +11,21 @@ const Testimonials = () => {
             _id: 1,
             name: "Windoson Herry",
             review: "",
-            img: people1, 
+            img: people1,
             location: "California"
         },
         {
             _id: 2,
             name: "Windoson Herry",
             review: "",
-            img: people2, 
+            img: people2,
             location: "California"
         },
         {
             _id: 3,
             name: "Windoson Herry",
             review: "",
-            img: people3, 
+            img: people3,
             location: "California"
         }
     ];
