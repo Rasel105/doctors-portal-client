@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
@@ -8,13 +8,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-
+   
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, forgetSending, forgetError] = useSendPasswordResetEmail(auth);
+
 
     let signInError;
 
@@ -29,22 +32,33 @@ const Login = () => {
         }
     }, [user, gUser, from, navigate]);
 
-    if (loading || gLoading) {
+
+
+    if (loading || gLoading || forgetSending) {
         return <Loading />
     }
 
-    if (error || gError) {
+    if (error || gError || forgetError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
-
-
 
 
     const onSubmit = data => {
         console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
-
     };
+
+
+    const resetPassword = async () => {
+        // const email = emailRef.current.value;
+        // if (email) {
+        //     await sendPasswordResetEmail(email);
+        //     alert("Email sent");
+        // }
+        // else {
+        //     alert("Please provide your email")
+        // }
+    }
 
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -97,10 +111,17 @@ const Login = () => {
                                     }
                                 })}
                             />
+                            <p className='mt-1'>
+                                <small
+                                    onClick={resetPassword}
+                                    className='cursor-pointer'
+                                >Forget Passoword?</small>
+                            </p>
                             <label className="label">
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
+
                         </div>
 
                         {signInError}

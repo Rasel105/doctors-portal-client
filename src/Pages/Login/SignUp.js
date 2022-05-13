@@ -12,7 +12,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -40,10 +40,8 @@ const SignUp = () => {
         await updateProfile({ displayName: data.name });
         console.log("Update done");
         navigate("/appointment");
-
+        alert("Email sent")
     };
-
-
 
 
     return (
