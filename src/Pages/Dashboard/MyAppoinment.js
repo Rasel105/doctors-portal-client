@@ -17,11 +17,12 @@ const MyAppoinment = () => {
 
     return (
         <div>
-            <h2>My appointments {appointment.length}</h2><div class="overflow-x-auto">
+            <h2>My appointments {appointment.length}</h2>
+            <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>S.L</th>
                             <th>Name</th>
                             <th>Date</th>
                             <th>Time</th>
