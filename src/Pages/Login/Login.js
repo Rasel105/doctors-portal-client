@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
@@ -8,7 +8,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-   
+    const [email, setEmail] = useState('');
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -41,27 +42,27 @@ const Login = () => {
     if (error || gError || forgetError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
-
+  
 
     const onSubmit = data => {
         console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
+        setEmail(data.email);
     };
 
 
     const resetPassword = async () => {
-        // const email = emailRef.current.value;
-        // if (email) {
-        //     await sendPasswordResetEmail(email);
-        //     alert("Email sent");
-        // }
-        // else {
-        //     alert("Please provide your email")
-        // }
+        if (email) {
+            await sendPasswordResetEmail(email);
+            alert("Email sent");
+        }
+        else {
+            alert("Please provide your email")
+        }
     }
 
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex h-screen justify-center items-center lg:mt-6'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
@@ -126,13 +127,13 @@ const Login = () => {
 
                         {signInError}
 
-                        <input className="btn w-full max-w-xs text-white" type="submit" value="Login" />
+                        <input className="btn w-full btn-primary uppercase font-bold text-white bg-gradient-to-r from-secondary to-primary" type="submit" value="Login" />
                     </form>
                     <p className='text-center'><small>New to Doctors Portal? <Link to={"/signup"} className="text-secondary">Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn btn-primary uppercase font-bold text-white bg-gradient-to-r from-secondary to-primary"
                     >Continue with Google</button>
                 </div>
             </div>

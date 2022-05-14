@@ -122,13 +122,13 @@ const SignUp = () => {
 
                         {signInError}
 
-                        <input className="btn w-full max-w-xs text-white" type="submit" value="Sing Up" />
+                        <input className="btn w-full btn-primary uppercase font-bold text-white bg-gradient-to-r from-secondary to-primary" type="submit" value="Sing Up" />
                     </form>
                     <p className='text-center'><small>Already have account? <Link to={"/login"} className="text-secondary">Please Login</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn btn-primary uppercase font-bold text-white bg-gradient-to-r from-secondary to-primary"
                     >Continue with Google</button>
                 </div>
             </div>

@@ -6,17 +6,25 @@ import auth from '../../firebase.init';
 const BookingModal = ({ treatment, date, setTreatment }) => {
     const { _id, name, slots } = treatment;
     const [user, loading, error] = useAuthState(auth);
+    const formatedDate = format(date, 'PPP');
     const handleBooking = event => {
         event.preventDefault();
         const slot = event.target.slot.value;
-        const date = event.target.date.value;
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const phone = event.target.phone.value;
+        // const phone = event.target.phone.value;
+        // const date = event.target.date.value;
+        // const name = event.target.name.value;
+        // const email = event.target.email.value;
+        // const treatmentName = treatment.name;
+        // console.log(slot, date, name, email, phone, treatmentName);
 
-        console.log(slot, date, name, email, phone);
-        const data = {
-            slot, date, name, email, phone
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formatedDate,
+            slot,
+            patientName: user.displayName,
+            patientEmail: user.email,
+            phone: event.target.phone.value
         }
 
         fetch('http://localhost:5000/patients', {
@@ -24,7 +32,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(booking),
         })
             .then(res => res.json())
             .then(data => {
@@ -39,7 +47,6 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-
                 <div className="modal-box">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg text-secondary">Booking for: {name}</h3>
