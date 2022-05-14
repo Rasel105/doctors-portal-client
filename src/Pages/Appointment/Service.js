@@ -2,6 +2,8 @@ import React from 'react';
 
 const Service = ({ service, setTreatment }) => {
     const { name, slots } = service;
+
+    
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body text-center">
