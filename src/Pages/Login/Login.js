@@ -51,16 +51,6 @@ const Login = () => {
     };
 
 
-    const resetPassword = async () => {
-        if (email) {
-            await sendPasswordResetEmail(email);
-            alert("Email sent");
-        }
-        else {
-            alert("Please provide your email")
-        }
-    }
-
     return (
         <div className='flex h-screen justify-center items-center lg:mt-6'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -112,12 +102,8 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            <p className='mt-1'>
-                                <small
-                                    onClick={resetPassword}
-                                    className='cursor-pointer'
-                                >Forget Passoword?</small>
-                            </p>
+                            <Link to="/forgetpass" className='mt-1 text-secondary text-center hover:underline text-xl'><small className='cursor-pointer'>Forget Passoword?</small>
+                            </Link>
                             <label className="label">
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}

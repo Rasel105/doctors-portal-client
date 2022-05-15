@@ -15,6 +15,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyAppoinment from './Pages/Dashboard/MyAppoinment';
 import MyReview from './Pages/Dashboard/MyReview';
 import Myhistory from './Pages/Dashboard/Myhistory';
+import ForgetPassword from './Pages/Login/ForgetPassword'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path='/contact' element={<ContactUs />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
+        <Route path='/forgetpass' element={<ForgetPassword/>}></Route >
       </Routes>
       <ToastContainer />
     </div>
