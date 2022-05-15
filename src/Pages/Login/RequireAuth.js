@@ -23,6 +23,8 @@ const RequireAuth = ({ children }) => {
     //         <h5 className='text-xl mt-3'>We've sent a varification email</h5>
     //         <h5 className='text-xl mt-3'>Check your email</h5>
     //         <button
+
+    
     //             className='text-lg bg-green-500 px-3 py-2 rounded text-white mt-4'
     //             onClick={async () => {
     //                 await sendEmailVerification();
