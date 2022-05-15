@@ -16,6 +16,7 @@ import MyAppoinment from './Pages/Dashboard/MyAppoinment';
 import MyReview from './Pages/Dashboard/MyReview';
 import Myhistory from './Pages/Dashboard/Myhistory';
 import ForgetPassword from './Pages/Login/ForgetPassword'
+import Users from './Pages/Dashboard/Users';
 
 function App() {
   return (
@@ -39,11 +40,12 @@ function App() {
           <Route index element={<MyAppoinment />}></Route>
           <Route path='myreview' element={<MyReview />}></Route>
           <Route path='myhistory' element={<Myhistory />}></Route>
+          <Route path='users' element={<Users />}></Route>
         </Route>
         <Route path='/contact' element={<ContactUs />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
-        <Route path='/forgetpass' element={<ForgetPassword/>}></Route >
+        <Route path='/forgetpass' element={<ForgetPassword />}></Route >
       </Routes>
       <ToastContainer />
     </div>
