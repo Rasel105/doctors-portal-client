@@ -11,7 +11,7 @@ const MyAppoinment = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?patientEmail=${user.email}`, {
+            fetch(`https://still-meadow-05809.herokuapp.com/booking?patientEmail=${user.email}`, {
                 method: "GET",
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem("accessToken")}`
