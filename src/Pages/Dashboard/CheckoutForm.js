@@ -6,10 +6,11 @@ const CheckoutForm = ({ appoinment }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const { price, patientEmail, patient } = appoinment;
+    const { _id, price, patientEmail, patient } = appoinment;
 
     useEffect(() => {
         fetch(`http://localhost:5000/create-payment-intent`, {
@@ -50,6 +51,7 @@ const CheckoutForm = ({ appoinment }) => {
 
         setCardError(error?.message || '')
         setSuccess("");
+        setProcessing(true);
         // confirm card payment 
 
         const { paymentIntent, error: ententError } = await stripe.confirmCardPayment(
@@ -66,11 +68,34 @@ const CheckoutForm = ({ appoinment }) => {
         );
         if (ententError) {
             setCardError(ententError.message);
+            setProcessing(false);
         } else {
             setCardError("");
             console.log(paymentIntent)
             setTransactionId(paymentIntent.id)
-            setSuccess("Congrats! Your payment is completed.")
+            setSuccess("Congrats! Your payment is completed.");
+
+
+            // STORE PAYMENT ON DATABASE 
+
+            const payment = {
+                appoinment: _id,
+                transactionId: paymentIntent.id
+            }
+
+            fetch(`http://localhost:5000/booking/${_id}`, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem("accessToken")}`
+                },
+                body: JSON.stringify(payment),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
         }
     }
 
