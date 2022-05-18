@@ -20,6 +20,7 @@ import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddDoctor from './Pages/Dashboard/AddDoctor'
 import ManageDoctor from './Pages/Dashboard/ManageDoctor';
+import Payment from './Pages/Dashboard/Payment';
 function App() {
   return (
     <div className='max-w-7xl	mx-auto px-12'>
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<MyAppoinment />}></Route>
           <Route path='myreview' element={<MyReview />}></Route>
           <Route path='myhistory' element={<Myhistory />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>}></Route>
           <Route path='addDoctor' element={<RequireAdmin><AddDoctor /></RequireAdmin>}></Route>
           <Route path='manageDoctor' element={<RequireAdmin><ManageDoctor /></RequireAdmin>}></Route>
