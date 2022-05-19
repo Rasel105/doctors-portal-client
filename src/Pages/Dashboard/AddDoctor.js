@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery("services", () => fetch("http://localhost:5000/service").then(res => res.json()));
+    const { data: services, isLoading } = useQuery("services", () => fetch("https://still-meadow-05809.herokuapp.com/service").then(res => res.json()));
     if (isLoading) {
         return <Loading />
     }
@@ -36,7 +36,7 @@ const AddDoctor = () => {
                         image: img
                     }
                     // send to my database 
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://still-meadow-05809.herokuapp.com/doctor', {
                         method: "POST",
                         headers: {
                             'content-type': "application/json",
